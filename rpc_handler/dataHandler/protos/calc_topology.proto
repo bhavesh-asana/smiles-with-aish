@@ -1,0 +1,54 @@
+syntax = "proto3";
+package topology;
+
+message CalcTopology{
+  repeated string symbols = 1;
+  repeated string geometry = 2;
+  double mol_charge = 3;
+  int64 mol_multiplicity = 4;
+  string name = 5;
+  string comment = 6;
+  repeated int64 mass_numbers = 7;
+  repeated double masses = 8;
+  repeated double atomic_number = 9;
+  repeated string atom_labels = 10;
+}
+
+message CreateTopologyRequest{
+  CalcTopology topology = 1;
+}
+message CreateTopologyResponse{
+  CalcTopology topology = 1;
+}
+message ReadTopologyRequest{
+  CalcTopology topology = 1;
+}
+message ReadTopologyResponse{
+  CalcTopology topology = 1;
+}
+message UpdateTopologyRequest{
+  CalcTopology topology = 1;
+}
+message UpdateTopologyResponse{
+  CalcTopology topology = 1;
+}
+message DeleteTopologyRequest{
+  CalcTopology topology = 1;
+}
+message DeleteTopologyResponse{
+  CalcTopology topology = 1;
+}
+message ListTopologyRequest{
+
+}
+message ListTopologyResponse{
+  CalcTopology topology = 1;
+}
+
+service TopologyService{
+  rpc CreateTopology(CreateTopologyRequest) returns (CreateTopologyResponse){};
+  rpc ReadTopology(ReadTopologyRequest) returns (ReadTopologyResponse){};
+  rpc UpdateTopology(UpdateTopologyRequest) returns (UpdateTopologyResponse){};
+  rpc DeleteTopology(DeleteTopologyRequest) returns (DeleteTopologyResponse){};
+  rpc ListTopology(ListTopologyRequest) returns (ListTopologyResponse){};
+}
